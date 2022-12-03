@@ -10,16 +10,20 @@ typealias Lines = List<String>
 
 abstract class Day {
     private val year = Calendar.getInstance().get(Calendar.YEAR)
-    private val day by lazy {
-        this::class.java.simpleName.removePrefix("Day")
-    }
+    private val day by lazy { this::class.java.simpleName.removePrefix("Day") }
+
     abstract fun part1(input: Lines): Any
     abstract fun part2(input: Lines): Any
 
+    private fun readInput(inputFileName: String) =
+        this::class.java.getResource(inputFileName)?.toURI()?.let(::File)?.takeIf { it.length() > 0 }
+
     @OptIn(ExperimentalTime::class)
-    private fun solve(inputFileName: String, solution: (Lines) -> Any) {
-        val lines = this::class.java.getResource(inputFileName)?.toURI()?.let(::File)?.readLines()
+    private fun solve(inputFileName: String, backupInputFileName: String?, solution: (Lines) -> Any) {
+        val input = readInput(inputFileName)
+            ?: backupInputFileName?.let(::readInput)
             ?: error("$inputFileName not found")
+        val lines = input.readLines()
         val (answer, duration) = measureTimedValue { solution(lines) }
         val time = duration.toComponents { seconds, nanoseconds -> "${seconds}s ${nanoseconds}ns" }
         pushToClipboard(answer.toString())
@@ -39,8 +43,8 @@ abstract class Day {
     }
 
     @Test
-    fun part1(): Unit = solve("part1.txt", ::part1)
+    fun part1(): Unit = solve("part1.txt", null, ::part1)
 
     @Test
-    fun part2(): Unit = solve("part2.txt", ::part2)
+    fun part2(): Unit = solve("part2.txt", "part1.txt", ::part2)
 }

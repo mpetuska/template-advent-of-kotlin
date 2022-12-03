@@ -4,7 +4,8 @@ A template repository providing a simple framework for [Advent of Code](https://
 
 ## Content
 
-After you create a new project based on the current template repository using the [**Use this template**](https://github.com/mpetuska/template-advent-of-kotlin/generate) button,
+After you create a new project based on the current template repository using the [**Use this template
+**](https://github.com/mpetuska/template-advent-of-kotlin/generate) button,
 a bare minimal scaffold will appear in your GitHub account with the following structure:
 
 ```
@@ -49,3 +50,6 @@ Here's the overview of your daily routine while solving AoC puzzles:
 11. Commit your code by running `git commit -a -m "AoC DayX"`
 12. Push the changes by running `git push`
 13. Profit??
+
+> Often inputs for `part1` and `part2` are the same. The framework handles that by falling back to `part1` input file
+> if `part2` input is left empty.
