@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("test-junit5"))
+    implementation("org.junit.jupiter:junit-jupiter-params")
 }
 
 sourceSets {

@@ -40,10 +40,10 @@ Here's the overview of your daily routine while solving AoC puzzles:
 1. Open `./calendar/dayX` directory for the day you're solving.
 2. Paste your input for part1 into `part1.txt`.
 3. Open `DayX.kt` file and implement your solution in `part1` method and return your answer.
-4. Check your solution for part1 by running `./gradlew test --tests='dayX.DayX#part1'`
-5. Paste your input for part2 into `part2.txt`.
+4. Check your solution for part1 by running `./gradlew test --tests='dayX.DayX.part1'`
+5. Paste your input for part2 into `part2.txt` (only if it's different frm `part1`, otherwise `part1.txt` will be used.
 6. Open `DayX.kt` file and implement your solution in `part2` method and return your answer.
-7. Check your solution for part2 by running `./gradlew test --tests='dayX.DayX#part2'`
+7. Check your solution for part2 by running `./gradlew test --tests='dayX.DayX.part2'`
 8. Check both your solutions by running `./gradlew test --tests='dayX.DayX'`
 9. Submit your answers to [AoC](https://adventofcode.com)
 10. Clean up inputs by running `./gradlew cleanInputs`
